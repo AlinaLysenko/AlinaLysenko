@@ -1,13 +1,14 @@
 package hw1;
 
 import com.epam.tat.module4.Calculator;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class SumTest {
-    private Calculator calculator;
+public class SumTest extends CalculatorTest {
+
 
     @DataProvider
     public Object[][] sumTwoDigitsDataProvider() {
@@ -19,7 +20,6 @@ public class SumTest {
 
     @Test (dataProvider = "sumTwoDigitsDataProvider", groups = {"gr1"})
     public void sumTwoDigitsWithDataProvider(double a, double b, double expected) {
-        calculator = new Calculator();
         System.out.println("sumTwoDigits"+ a + " " + b);
         double actual = calculator.sum(a,b);
         assertEquals(actual, expected);

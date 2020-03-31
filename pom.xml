@@ -12,12 +12,20 @@
     <properties>
         <java.source.version>1.8</java.source.version>
         <java.target.version>1.8</java.target.version>
+        <calculator.version>1.0</calculator.version>
+        <selenium.version>3.141.59</selenium.version>
+        <webdrivermanager.version>3.7.1</webdrivermanager.version>
+        <assertj.version>3.15.0</assertj.version>
+        <common-io.version>2.6</common-io.version>
+
 
         <testng.version>7.1.0</testng.version>
 
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
     </properties>
+
+
 
     <dependencies>
         <dependency>
@@ -26,11 +34,39 @@
             <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
-            <groupId>com.epam.tat.module4</groupId>
+            <groupId>com.epam.tat</groupId>
             <artifactId>calculator</artifactId>
-            <version>1.0</version>
+            <version>${calculator.version}</version>
+            <systemPath>${project.basedir}/src/test/resources/calculator-1.0.jar</systemPath>
+            <scope>system</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${common-io.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj.version}</version>
+        </dependency>
+
     </dependencies>
 
     <profiles>

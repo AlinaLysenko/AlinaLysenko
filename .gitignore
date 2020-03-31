@@ -45,3 +45,6 @@ mainframer
 # exclude vscode files
 .vscode/
 *.factorypath
+
+# HW2
+/hw2

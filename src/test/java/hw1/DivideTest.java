@@ -1,13 +1,13 @@
 package hw1;
 
 import com.epam.tat.module4.Calculator;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class DivideTest {
-    private Calculator calculator;
+public class DivideTest extends CalculatorTest{
 
     @DataProvider
     public Object[][] divideTwoDigitsDataProvider() {
@@ -19,8 +19,7 @@ public class DivideTest {
 
     @Test(dataProvider = "divideTwoDigitsDataProvider", groups = {"gr2"})
     public void divideTwoDigitsWithDataProvider(double a, double b, double expected) {
-        calculator = new Calculator();
-        System.out.println("divideTwoDigits" + a + " " + b);
+        System.out.println("divideTwoDigits " + a + " " + b);
         double actual = calculator.div(a,b);
         assertEquals(actual, expected);
     }

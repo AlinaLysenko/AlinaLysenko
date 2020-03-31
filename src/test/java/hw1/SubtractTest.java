@@ -1,13 +1,13 @@
 package hw1;
 
 import com.epam.tat.module4.Calculator;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class SubtractTest {
-    private Calculator calculator;
+public class SubtractTest extends CalculatorTest{
 
     @DataProvider
     public Object[][] subtractTwoDigitsDataProvider() {
@@ -19,7 +19,6 @@ public class SubtractTest {
 
     @Test(dataProvider = "subtractTwoDigitsDataProvider", groups = {"gr1"})
     public void subtractTwoDigitsWithDataProvider(double a, double b, double expected) {
-        calculator = new Calculator();
         System.out.println("subtractTwoDigits" + a + " " + b);
         double actual = calculator.sub(a,b);
         assertEquals(actual, expected);

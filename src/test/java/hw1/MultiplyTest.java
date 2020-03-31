@@ -1,13 +1,13 @@
 package hw1;
 
 import com.epam.tat.module4.Calculator;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class MultiplyTest {
-    private Calculator calculator;
+public class MultiplyTest extends CalculatorTest{
 
     @DataProvider
     public Object[][] multiplyTwoDigitsDataProvider() {
@@ -19,7 +19,6 @@ public class MultiplyTest {
 
     @Test(dataProvider = "multiplyTwoDigitsDataProvider", groups = {"gr2"})
     public void multiplyTwoDigitsWithDataProvider(double a, double b, double expected) {
-        calculator = new Calculator();
         System.out.println("multiplyTwoDigits"+ a + " " + b);
         double actual = calculator.mult(a,b);
         assertEquals(actual, expected);
