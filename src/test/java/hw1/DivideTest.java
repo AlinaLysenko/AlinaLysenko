@@ -9,10 +9,6 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 
 public class DivideTest extends CalculatorTest {
-    @BeforeMethod
-    public void setUp() {
-        calculator = new Calculator();
-    }
 
     @DataProvider
     public Object[][] divideTwoDigitsDataProvider() {
@@ -29,8 +25,5 @@ public class DivideTest extends CalculatorTest {
         assertEquals(actual, expected);
     }
 
-    @AfterMethod
-    public void tearDownClass() {
-        calculator = null;
-    }
+
 }

@@ -8,4 +8,14 @@ public class CalculatorTest {
 
     protected Calculator calculator;
 
+    @BeforeMethod
+    public void setUp() {
+        calculator = new Calculator();
+    }
+
+    @AfterMethod
+    public void tearDownClass() {
+        calculator = null;
+    }
+
 }

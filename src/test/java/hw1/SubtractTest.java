@@ -10,10 +10,6 @@ import static org.testng.Assert.assertEquals;
 
 public class SubtractTest extends CalculatorTest {
 
-    @BeforeMethod
-    public void setUp() {
-        calculator = new Calculator();
-    }
 
     @DataProvider
     public Object[][] subtractTwoDigitsDataProvider() {
@@ -30,8 +26,4 @@ public class SubtractTest extends CalculatorTest {
         assertEquals(actual, expected);
     }
 
-    @AfterMethod
-    public void tearDownClass() {
-        calculator = null;
-    }
 }
