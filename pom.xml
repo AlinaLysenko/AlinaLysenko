@@ -91,7 +91,7 @@
         </profile>
 
         <profile>
-            <id>runall</id>
+            <id>runAll</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
