@@ -1,12 +1,12 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="MultiplyAndDivide suite">
     <test name="MultiplyAndDivide test">
-        <groups>
-            <!--            <define name="gr2"/>-->
+       <!-- <groups>
+            &lt;!&ndash;            <define name="gr2"/>&ndash;&gt;
             <run>
                 <include name="gr2"/>
             </run>
-        </groups>
+        </groups>-->
         <classes>
             <class name="hw1.MultiplyTest"></class>
             <class name="hw1.DivideTest"></class>
