@@ -19,5 +19,3 @@ hs_err_pid*.log
 #Logs
 *.log
 
-# HW2
-.hw2/
