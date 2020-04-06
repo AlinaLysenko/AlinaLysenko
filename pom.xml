@@ -100,6 +100,36 @@
             </properties>
         </profile>
 
+        <profile>
+            <id>ex1</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw2/ex1.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>ex2</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw2/ex2.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>runBoth</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw2/runboth.xml</suite.xml>
+            </properties>
+        </profile>
+
     </profiles>
 
     <build>
