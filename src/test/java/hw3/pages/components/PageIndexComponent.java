@@ -1,0 +1,44 @@
+package hw3.pages.components;
+
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+import java.util.List;
+
+public class PageIndexComponent extends AbstractComponent {
+
+    public PageIndexComponent(WebDriver driver) {
+        super(driver);
+    }
+
+    @FindBy(className = "benefit-icon")
+    List<WebElement> imageWebElementList;
+
+    @FindBy(className = "benefit-txt")
+    List<WebElement> textWebElementList;
+
+
+    public int getImageWebElementListSize() {
+        return this.imageWebElementList.size();
+    }
+
+    public boolean allImageElementsAreDisplayed() {
+        return allElementsAreDisplayed(imageWebElementList);
+    }
+
+    public int getTextWebElementListSize() {
+        return this.textWebElementList.size();
+    }
+
+    public boolean allTextElementsAreDisplayed() {
+        return allElementsAreDisplayed(textWebElementList);
+    }
+
+    public List<String> getTextElementListContent() {
+        return getWebElementsText(textWebElementList);
+    }
+
+
+}

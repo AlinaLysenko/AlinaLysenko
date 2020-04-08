@@ -26,7 +26,6 @@
     </properties>
 
 
-
     <dependencies>
         <dependency>
             <groupId>org.testng</groupId>
@@ -127,6 +126,36 @@
             </activation>
             <properties>
                 <suite.xml>src/test/resources/hw2/runboth.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>hw3.ex1</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw3/ex1.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>hw3.ex2</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw3/ex2.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>hw3.runBoth</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw3/runboth.xml</suite.xml>
             </properties>
         </profile>
 
