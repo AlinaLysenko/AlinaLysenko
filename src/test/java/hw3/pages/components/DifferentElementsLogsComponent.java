@@ -8,12 +8,13 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class DifferentElementsLogsComponent extends AbstractComponent {
+
+    @FindBy(css = ".logs > li")
+    private List<WebElement> logList;
+
     public DifferentElementsLogsComponent(WebDriver driver) {
         super(driver);
     }
-
-    @FindBy(css = ".logs > li")
-    List<WebElement> logList;
 
     private static boolean verifyLogsListContains(List<String> logList, String log) {
         Pattern pattern = Pattern.compile("^\\d{2}:\\d{2}:\\d{2}\\s+" + log);
@@ -22,12 +23,9 @@ public class DifferentElementsLogsComponent extends AbstractComponent {
                 .count() == 1;
     }
 
-    public boolean logSectionContains(List<String> expectedlogs) {
-        return expectedlogs.stream()
+    public boolean logSectionContains(List<String> expectedLogs) {
+        return expectedLogs.stream()
                 .filter(s -> verifyLogsListContains(getWebElementsText(logList), s))
-                .count() == expectedlogs.size();
-
+                .count() == expectedLogs.size();
     }
-
-
 }

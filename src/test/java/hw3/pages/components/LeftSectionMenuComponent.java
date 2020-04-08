@@ -1,6 +1,5 @@
 package hw3.pages.components;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,15 +13,13 @@ public class LeftSectionMenuComponent extends AbstractComponent {
     }
 
     @FindBy(css = ".sidebar-menu>li")
-    List<WebElement> leftSectionMenuList;
+    private List<WebElement> leftSectionMenuList;
 
     @FindBy(linkText = "Service")
-    WebElement service;
+    private WebElement service;
 
     @FindBy(linkText = "Different elements")
-    WebElement diffElemets;
-
-
+    private WebElement diffElements;
 
     public int getLeftSectionMenuListSize() {
         return this.leftSectionMenuList.size();
@@ -36,11 +33,8 @@ public class LeftSectionMenuComponent extends AbstractComponent {
         return allElementsAreDisplayed(leftSectionMenuList);
     }
 
-    public WebDriver switchToDifferentElements(){
+    public void switchToDifferentElements() {
         service.click();
-        diffElemets.click();
-        return driver;
+        diffElements.click();
     }
-
-
 }

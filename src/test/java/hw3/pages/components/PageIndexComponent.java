@@ -9,16 +9,15 @@ import java.util.List;
 
 public class PageIndexComponent extends AbstractComponent {
 
+    @FindBy(className = "benefit-icon")
+    private List<WebElement> imageWebElementList;
+
+    @FindBy(className = "benefit-txt")
+    private List<WebElement> textWebElementList;
+
     public PageIndexComponent(WebDriver driver) {
         super(driver);
     }
-
-    @FindBy(className = "benefit-icon")
-    List<WebElement> imageWebElementList;
-
-    @FindBy(className = "benefit-txt")
-    List<WebElement> textWebElementList;
-
 
     public int getImageWebElementListSize() {
         return this.imageWebElementList.size();
@@ -39,6 +38,4 @@ public class PageIndexComponent extends AbstractComponent {
     public List<String> getTextElementListContent() {
         return getWebElementsText(textWebElementList);
     }
-
-
 }

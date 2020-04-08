@@ -3,39 +3,43 @@ package hw3.pages.components;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
 public class DifferentElementsInputFieldsComponent extends AbstractComponent {
+
     @FindBy(xpath = "//label[normalize-space()='Water']")
-    WebElement water;
+    private WebElement water;
 
     @FindBy(xpath = "//label[normalize-space()='Wind']")
-    WebElement wind;
+    private WebElement wind;
 
     @FindBy(xpath = "//label[normalize-space()='Selen']")
-    WebElement selen;
+    private WebElement selen;
 
-    @FindBy(css = ".colors")
-    WebElement colors;
-
-    @FindBy(xpath = "//*[text()='Yellow']")
-    WebElement yellow;
+    @FindBy(css = ".colors > .uui-form-element")
+    private WebElement colors;
 
     public DifferentElementsInputFieldsComponent(WebDriver driver) {
         super(driver);
     }
 
-    public void clickWater(){
-        water.click();
-    }
-     public void clickWind(){
-        wind.click();
-    }
-     public void selectSelen(){
-        selen.click();
-    }
-     public void selectYellow(){
-        colors.click();
-        yellow.click();
+    public void clickOnField(String fieldName) {
+        switch (fieldName) {
+            case "Water":
+                water.click();
+                break;
+            case "Wind":
+                wind.click();
+                break;
+            case "Selen":
+                selen.click();
+                break;
+            default:
+                throw new IllegalArgumentException(fieldName);
+        }
     }
 
+    public void selectColor(String color) {
+        new Select(colors).selectByVisibleText(color);
+    }
 }

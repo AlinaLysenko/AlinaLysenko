@@ -22,13 +22,15 @@ import java.util.stream.Collectors;
 public abstract class MainTestClass {
 
     public WebDriver driver;
-    public String URL;
-    public String USERNAME;
-    public String PASSWORD;
-    public SoftAssert softAssert = new SoftAssert();
-    public WebDriverWait wait;
-    public HomePage homePage;
-    public DifferentElementsPage diffPage;
+
+    private String url;
+    private String username;
+    private String password;
+
+    private WebDriverWait wait;
+    protected SoftAssert softAssert = new SoftAssert();
+    protected HomePage homePage;
+    protected DifferentElementsPage diffPage;
 
     public void setProperties() {
         FileInputStream fis;
@@ -36,10 +38,9 @@ public abstract class MainTestClass {
         try {
             fis = new FileInputStream("src/test/resources/hw3/config.properties");
             property.load(fis);
-            URL = property.getProperty("url");
-            USERNAME = property.getProperty("username");
-            PASSWORD = property.getProperty("password");
-
+            url = property.getProperty("url");
+            username = property.getProperty("username");
+            password = property.getProperty("password");
         } catch (IOException e) {
             System.err.println("No property file");
         }
@@ -72,11 +73,10 @@ public abstract class MainTestClass {
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 10);
         //Open test site by URL  Test site is opened
-        driver.get(URL);
+        driver.get(url);
         driver.manage().window().maximize();
         homePage = new HomePage(driver);
-        logIn(USERNAME, PASSWORD);
-
+        logIn(username, password);
     }
 
     @AfterClass

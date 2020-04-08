@@ -31,5 +31,4 @@ public class FrameWithButtonComponent extends AbstractComponent {
     public boolean isFrameDisplayed() {
         return frame.isDisplayed();
     }
-
 }

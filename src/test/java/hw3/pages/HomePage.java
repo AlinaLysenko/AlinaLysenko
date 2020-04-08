@@ -93,7 +93,7 @@ public class HomePage extends AbstractPage {
         return frameWithButtonComponent.isFrameDisplayed();
     }
 
-    public boolean isButtonDisplayed() {
+    public boolean isButtonInFrameDisplayed() {
         return frameWithButtonComponent.isButtonDisplayed();
     }
 
@@ -105,8 +105,7 @@ public class HomePage extends AbstractPage {
         frameWithButtonComponent.switchToFrame();
     }
 
-    public WebDriver switchToDifferentElements() {
-        return leftSectionMenuComponent.switchToDifferentElements();
+    public void switchToDifferentElements() {
+        leftSectionMenuComponent.switchToDifferentElements();
     }
-
 }
