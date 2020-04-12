@@ -16,19 +16,6 @@ public class ElementCheckBoxesComponent extends AbstractComponent {
     }
 
     public void click(Elements element) {
-        switch (element) {
-            case Water:
-                checkboxes.get(0).click();
-                break;
-            case Earth:
-                checkboxes.get(1).click();
-                break;
-            case Wind:
-                checkboxes.get(2).click();
-                break;
-            case Fire:
-                checkboxes.get(3).click();
-                break;
-        }
+        checkboxes.get(element.ordinal()).click();
     }
 }

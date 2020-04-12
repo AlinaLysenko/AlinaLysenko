@@ -1,14 +1,13 @@
 package hw4.ex1;
 
 import hw4.BaseTestClass;
-import hw4.pages.HomePage;
 import hw4.pages.TableWithPagesPage;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class Ex1 extends BaseTestClass {
 
-    TableWithPagesPage tableWithPagesPage = new TableWithPagesPage();
+    TableWithPagesPage tableWithPagesPage;
 
     @DataProvider
     public Object[][] searchData() {
@@ -19,6 +18,7 @@ public class Ex1 extends BaseTestClass {
 
     @Test (dataProvider = "searchData")
     public void checkTableWithPagesContent(int tableLength, String searchValue) {
+        tableWithPagesPage = new TableWithPagesPage();
         softAssert.assertEquals(driver.getTitle(), "Home Page", "Not expected Index page title");
         //4	Assert Username is loggined	"ROMAN IOVLEV"
         softAssert.assertTrue(homePage.usernameIsDisplayed());

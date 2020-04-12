@@ -1,18 +1,14 @@
 package hw4;
 
 import hw4.pages.HomePage;
-import hw4.WebDriverSingleton;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.asserts.SoftAssert;
-
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -23,7 +19,7 @@ abstract public class BaseTestClass {
     protected String username;
     protected String password;
     protected SoftAssert softAssert = new SoftAssert();
-    protected HomePage homePage = new HomePage();
+    protected HomePage homePage;
 
     public void setProperties() {
         FileInputStream fis;
@@ -50,6 +46,7 @@ abstract public class BaseTestClass {
         WebDriverManager.chromedriver().setup();
         driver = WebDriverSingleton.INSTANCE.getDriver();
         openSite(url);
+        homePage = new HomePage();
     }
 
     @BeforeMethod

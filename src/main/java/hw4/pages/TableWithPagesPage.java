@@ -3,7 +3,6 @@ package hw4.pages;
 import hw4.pages.components.HeaderSectionComponent;
 import hw4.pages.components.LeftSectionMenuComponent;
 import hw4.pages.components.SearchComponent;
-import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 

@@ -1,6 +1,5 @@
 package hw4.pages.components;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -32,5 +31,4 @@ public class LeftSectionMenuComponent extends AbstractComponent {
     public void switchToMetalsAndColors() {
         metalsAndColors.click();
     }
-
 }

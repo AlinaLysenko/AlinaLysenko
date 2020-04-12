@@ -5,10 +5,8 @@ import hw4.enums.Metals;
 import hw4.enums.Vegetables;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Select;
-
 import java.util.List;
-import java.util.concurrent.TimeUnit;
+
 
 public class SelectFieldsComponent extends AbstractComponent {
     @FindBy(css = "#colors > div > div > ul > li")
@@ -36,8 +34,8 @@ public class SelectFieldsComponent extends AbstractComponent {
     }
 
     public void selectColor(Colors color) {
-        colorsButton.click(); //red green blue yellow
-        colorsSelector.get(color.ordinal()).click();
+        colorsButton.click();
+        colorsSelector.get(color.ordinal() + 1).click();
     }
 
     public void SelectVegetables(List<Vegetables> vegetables) {
