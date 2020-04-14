@@ -26,7 +26,6 @@
     </properties>
 
 
-
     <dependencies>
         <dependency>
             <groupId>org.testng</groupId>
@@ -73,7 +72,7 @@
         <profile>
             <id>sumAndSub</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.xml>src/test/resources/hw1/SumAndSubtract.xml</suite.xml>
@@ -103,7 +102,7 @@
         <profile>
             <id>ex1</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.xml>src/test/resources/hw2/ex1.xml</suite.xml>
@@ -113,7 +112,7 @@
         <profile>
             <id>ex2</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.xml>src/test/resources/hw2/ex2.xml</suite.xml>
@@ -123,10 +122,40 @@
         <profile>
             <id>runBoth</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.xml>src/test/resources/hw2/runboth.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>hw3.ex1</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw3/ex1.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>hw3.ex2</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw3/ex2.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>hw3.runBoth</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw3/runboth.xml</suite.xml>
             </properties>
         </profile>
 
