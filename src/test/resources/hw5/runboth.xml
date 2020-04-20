@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="hw5.runBoth suite">
+    <listeners>
+        <listener class-name="hw5.AllureScreenshotListener"/>
+    </listeners>
+    <test name="hw5.runBoth test">
+        <classes>
+            <class name="hw5.ex1.Ex1"></class>
+            <class name="hw5.ex2.Ex2"></class>
+        </classes>
+    </test>
+</suite>
