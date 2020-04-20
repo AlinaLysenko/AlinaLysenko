@@ -22,6 +22,7 @@
         <aspectj.version>1.8.10</aspectj.version>
         <aspectjweaver.version>1.8.10</aspectjweaver.version>
         <testng.version>7.1.0</testng.version>
+        <cucumber.version>5.6.0</cucumber.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
     </properties>
@@ -85,7 +86,25 @@
             <version>7.1.0</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
 
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-cucumber5-jvm</artifactId>
+            <version>${allure.version}</version>
+        </dependency>
 
     </dependencies>
 
@@ -237,6 +256,15 @@
             </activation>
             <properties>
                 <suite.xml>src/test/resources/hw5/runboth.xml</suite.xml>
+            </properties>
+        </profile>
+        <profile>
+            <id>hw6.runAll</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw6/runCucumber.xml</suite.xml>
             </properties>
         </profile>
     </profiles>
