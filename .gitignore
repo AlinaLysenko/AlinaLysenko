@@ -18,3 +18,7 @@ hs_err_pid*.log
 
 #Logs
 *.log
+
+#allure
+allire-results/*
+.allure/*
