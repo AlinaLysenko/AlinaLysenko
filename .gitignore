@@ -20,8 +20,5 @@ hs_err_pid*.log
 *.log
 
 #allure
-.allure/
-allure-results/
-
-#hw6
-*/hw6/
+allure-results/*
+.allure/*
