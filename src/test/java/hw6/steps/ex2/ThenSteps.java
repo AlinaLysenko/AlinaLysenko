@@ -1,9 +1,12 @@
 package hw6.steps.ex2;
 
+import hw6.ProfileText;
 import hw6.WebDriverSingleton;
 import hw6.pages.UserTablePage;
+import io.cucumber.java.DataTableType;
 import io.cucumber.java.en.Then;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -41,14 +44,25 @@ public class ThenSteps {
         assertThat(usersTablePage.countCheckboxesIsDisplayed()).isEqualTo(amount);
     }
 
-    @Then("User table should contain following values:")
-    public void checkUserTableContent(List<List<String>> dataTable){
-        assertThat(usersTablePage.getIdUsernameDeskList()).isEqualTo(dataTable.subList(1,7));
+    @DataTableType
+    public ProfileText ProfileTextEntry(Map<String, String> entry) {
+        return new ProfileText(
+                entry.get("Number"),
+                entry.get("User"),
+                entry.get("Description"));
     }
 
+    @Then("User table should contain following values:")
+    public void checkUserTableContent(List<ProfileText> dataTable){
+        dataTable.stream().forEach(e -> System.out.println(e.toString()));
+        usersTablePage.getProfileTextList().stream().forEach(e -> System.out.println(e.toString()));
+        assertThat(usersTablePage.getProfileTextList()).isEqualTo(dataTable);
+    }
+
+
     @Then("droplist should contain values in column Type for user {word}")
-    public void checkUserTableDroplistContent(String username, List<List<String>> dataTable){
+    public void checkUserTableDroplistContent(String username, List<String> dataTable){
         assertThat(usersTablePage.getTypeList(username))
-                .isEqualTo(dataTable.subList(1,4).stream().map(e -> e.get(0)).collect(Collectors.toList()));
+                .isEqualTo(dataTable.subList(1,4));
     }
 }

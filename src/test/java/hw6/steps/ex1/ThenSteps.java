@@ -17,11 +17,7 @@ public class ThenSteps {
     }
 
     @Then ("Log section should contain:")
-    public void verifyDifferentElementsPageLogs(List<List<String>> expectedLogs){
-        assertThat(differentElementsPage.logSectionContains(
-                expectedLogs.stream()
-                        .map(e -> e.get(0))
-                        .collect(Collectors.toList())))
-                .isTrue();
+    public void verifyDifferentElementsPageLogs(List<String> expectedLogs){
+        assertThat(differentElementsPage.logSectionContains(expectedLogs)).isTrue();
     }
 }

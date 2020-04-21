@@ -5,19 +5,19 @@ import io.cucumber.java.en.When;
 
 public class NavigationBetweenPagesSteps {
 
+    HomePage homePage;
+
+    public NavigationBetweenPagesSteps() {
+        this.homePage = new HomePage();
+    }
+
     @When("I click on \"Service\" button in Header")
     public void clickService() {
-        new HomePage().clickOnServices();
-    } //todo:
+        homePage.clickOnServices();
+    }
 
-    @When("I click on \"User Table\" button in Service dropdown")
-    public void clickUserTable() {
-        new HomePage().clickOnUsersTable();
-    }//todo:
-
-    @When("I click on \"Different Elements Page\" button in Service dropdown")
-    public void clickDifferentElement() {
-        new HomePage().clickOnDifferentElements();
-    }//todo:
-
+    @When("I click on {string} button in Service dropdown")
+    public void clickDifferentElement(String page) {
+        homePage.clickOnPageButton(page);
+    }
 }

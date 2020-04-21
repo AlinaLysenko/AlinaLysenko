@@ -14,8 +14,6 @@ public class HomePage extends AbstractPage {
 
     @Override
     void initElementsOnPage() {
-        this.headerSectionComponent = new HeaderSectionComponent();
-        this.leftSectionMenuComponent = new LeftSectionMenuComponent();
     }
 
     public void logIn(String username, String password) { //not void
@@ -38,12 +36,8 @@ public class HomePage extends AbstractPage {
         headerSectionComponent.clickOnServices();
     }
 
-    public void clickOnUsersTable() {
-        headerSectionComponent.clickOnUsersTable();
-    }
-
-    public void clickOnDifferentElements() {
-        headerSectionComponent.clickOnDiffElements();
+    public void clickOnPageButton(String page){
+        headerSectionComponent.clickOnPageButton(page);
     }
 
 

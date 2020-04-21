@@ -32,12 +32,6 @@ public class HeaderSectionComponent extends AbstractComponent {
     @FindBy(css = ".m-l8 > li")
     private List<WebElement> headerElementList;
 
-    @FindBy(linkText = "USER TABLE")
-    private WebElement usersTable;
-
-    @FindBy(linkText = "DIFFERENT ELEMENTS")
-    private WebElement diffElements;
-
 
     public HeaderSectionComponent() {
         super();
@@ -62,11 +56,9 @@ public class HeaderSectionComponent extends AbstractComponent {
         headerElementList.get(2).click();
     }
 
-    public void clickOnUsersTable() {
-        usersTable.click();
-    }
-
-    public void clickOnDiffElements() {
-        diffElements.click();
+    public void clickOnPageButton(String page){
+        new WebDriverWait(driver,10)
+                .until(ExpectedConditions.visibilityOfElementLocated(By.linkText(page.toUpperCase())))
+                .click();
     }
 }

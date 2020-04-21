@@ -8,6 +8,8 @@ public abstract class AbstractPage {
     protected LeftSectionMenuComponent leftSectionMenuComponent;
 
     AbstractPage() {
+        this.headerSectionComponent = new HeaderSectionComponent();
+        this.leftSectionMenuComponent = new LeftSectionMenuComponent();
         initElementsOnPage();
     }
 

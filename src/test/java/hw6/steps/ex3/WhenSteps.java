@@ -13,6 +13,6 @@ public class WhenSteps {
 
     @When("I select 'vip' checkbox for {string}")
     public void clickVipCheckbox(String username){
-        userTablePage.clickVipCheckbox(username); //todo:
+        userTablePage.clickVipCheckbox(username);
     }
 }

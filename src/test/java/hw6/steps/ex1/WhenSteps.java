@@ -17,16 +17,16 @@ public class WhenSteps {
     }
 
     @When("I select checkboxes:")
-    public void clickDifferentElementsPageCheckboxes(List<List<String>> elements) {
-        elements.get(0).stream().forEach(e -> differentElementsPage.clickOnCheckbox(Elements.valueOf(e)));
+    public void clickDifferentElementsPageCheckboxes(List<String> elements) {
+        elements.forEach(e -> differentElementsPage.clickOnCheckbox(Elements.valueOf(e)));
     }
 
-    @When("I select radiobutton \"{word}\"")
+    @When("I select radiobutton {string}")
     public void clickDifferentElementsPageRadiobutton(String metal) {
         differentElementsPage.clickOnRadiobutton(Metals.valueOf(metal));
     }
 
-    @When("I select in color dropdown value \"{word}\"")
+    @When("I select in color dropdown value {string}")
     public void clickDifferentElementsPageColor(String color) {
         differentElementsPage.selectColor(Colors.valueOf(color));
     }

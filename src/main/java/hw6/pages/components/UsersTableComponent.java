@@ -1,6 +1,7 @@
 package hw6.pages.components;
 
 import hw6.Profile;
+import hw6.ProfileText;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -41,8 +42,8 @@ public class UsersTableComponent extends AbstractComponent {
                 .forEach(e -> e.getVipCheckbox().click());
     }
 
-    public List<List<String>> getIdUsernameDeskList() {
-        return users.stream().map(Profile::getIdUsernameDeskList).collect(Collectors.toList());
+    public List<ProfileText> getProfileTextList() {
+        return users.stream().map(Profile::getProfileText).collect(Collectors.toList());
     }
 
     public List<String> getTypeList(String username) {

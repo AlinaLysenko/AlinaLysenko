@@ -13,8 +13,6 @@ import java.util.List;
 
 public class DifferentElementsPage extends AbstractPage {
 
-    private HeaderSectionComponent headerSectionComponent;
-    private LeftSectionMenuComponent leftSectionMenuComponent;
     private DifferentElementsLogsComponent differentElementsLogsComponent;
     private DifferentElementsInputFieldsComponent differentElementsInputFieldsComponent;
 

@@ -1,5 +1,6 @@
 package hw6.pages;
 
+import hw6.ProfileText;
 import hw6.pages.components.HeaderSectionComponent;
 import hw6.pages.components.LeftSectionMenuComponent;
 import hw6.pages.components.UsersTableComponent;
@@ -14,8 +15,6 @@ public class UserTablePage extends AbstractPage {
 
     @Override
     void initElementsOnPage() {
-        this.headerSectionComponent = new HeaderSectionComponent();
-        this.leftSectionMenuComponent = new LeftSectionMenuComponent();
         this.usersTableComponent = new UsersTableComponent();
         this.usersTableLogsComponent = new UsersTableLogsComponent();
     }
@@ -40,8 +39,8 @@ public class UserTablePage extends AbstractPage {
         usersTableComponent.clickVipCheckbox(username);
     }
 
-    public List<List<String>> getIdUsernameDeskList() {
-        return usersTableComponent.getIdUsernameDeskList();
+    public List<ProfileText> getProfileTextList() {
+        return usersTableComponent.getProfileTextList();
     }
 
     public List<String> getTypeList(String username) {

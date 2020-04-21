@@ -50,12 +50,8 @@ public class Profile {
         return deskName;
     }
 
-    public List<String> getIdUsernameDeskList(){
-        return new ArrayList<String>() {{
-            add(id.getText());
-            add(username.getText());
-            add(deskName.getText().replaceAll("\n"," "));
-        }};
+    public ProfileText getProfileText(){
+        return new ProfileText(this);
     }
 
     public List<String> getTypeValyes(){
