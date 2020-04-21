@@ -7,7 +7,6 @@ import io.cucumber.java.DataTableType;
 import io.cucumber.java.en.Then;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

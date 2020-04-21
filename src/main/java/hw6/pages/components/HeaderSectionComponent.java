@@ -32,7 +32,6 @@ public class HeaderSectionComponent extends AbstractComponent {
     @FindBy(css = ".m-l8 > li")
     private List<WebElement> headerElementList;
 
-
     public HeaderSectionComponent() {
         super();
     }
