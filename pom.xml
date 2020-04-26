@@ -10,31 +10,45 @@
     <packaging>jar</packaging>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
         <java.source.version>1.8</java.source.version>
         <java.target.version>1.8</java.target.version>
-        <calculator.version>1.0</calculator.version>
-        <selenium.version>3.141.59</selenium.version>
-        <webdrivermanager.version>3.7.1</webdrivermanager.version>
-        <assertj.version>3.15.0</assertj.version>
-        <common-io.version>2.6</common-io.version>
-        <allure.version>2.13.2</allure.version>
-        <allure-maven-plugin.version>2.10.0</allure-maven-plugin.version>
-        <aspectj.version>1.8.10</aspectj.version>
-        <aspectjweaver.version>1.8.10</aspectjweaver.version>
+
         <testng.version>7.1.0</testng.version>
-        <cucumber.version>5.6.0</cucumber.version>
+        <assertj.version>3.14.0</assertj.version>
+
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+        <allure-maven-plugin.version>2.10.0</allure-maven-plugin.version>
+        <aspectjweaver.version>1.8.10</aspectjweaver.version>
+
+        <calculator.version>1.0</calculator.version>
+
+        <selenium.version>3.141.59</selenium.version>
+        <webdrivermanager.version>3.8.1</webdrivermanager.version>
+
+        <allure.version>2.13.2</allure.version>
+        <aspectj.version>1.8.10</aspectj.version>
+
+        <cucumber.version>5.6.0</cucumber.version>
+
+        <jdi.version>RELEASE</jdi.version>
+        <lombok.vesrion>1.18.12</lombok.vesrion>
+        <guava.version>22.0</guava.version>
+
+        <logback.version>1.2.3</logback.version>
+        <slf4j.version>1.7.25</slf4j.version>
+
+        <driver>chrome</driver>
+        <domain>https://jdi-testing.github.io/jdi-light/</domain>
+
+        <common-io.version>2.6</common-io.version>
     </properties>
 
 
     <dependencies>
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>${testng.version}</version>
-            <scope>test</scope>
-        </dependency>
 
         <dependency>
             <groupId>com.epam.tat</groupId>
@@ -50,11 +64,11 @@
             <version>${selenium.version}</version>
         </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>${webdrivermanager.version}</version>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>commons-io</groupId>
@@ -106,6 +120,17 @@
             <version>${allure.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.epam.jdi</groupId>
+            <artifactId>jdi-light-html</artifactId>
+            <version>${jdi.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.vesrion}</version>
+        </dependency>
     </dependencies>
 
     <profiles>
@@ -267,6 +292,16 @@
                 <suite.xml>src/test/resources/hw6/runCucumber.xml</suite.xml>
             </properties>
         </profile>
+
+        <profile>
+            <id>hw_jdi.runAll</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw_jdi/runAll.xml</suite.xml>
+            </properties>
+        </profile>
     </profiles>
 
     <build>
@@ -312,5 +347,17 @@
                 </configuration>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>${project.basedir}/src/test/resources</directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
     </build>
 </project>

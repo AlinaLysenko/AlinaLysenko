@@ -25,7 +25,7 @@ public class GivenSteps {
         Properties property = new Properties();
         try {
             fis = new FileInputStream("src/test/resources/hw6" +
-                    "/config.properties");
+                    "/src/test/resources/config.properties");
             property.load(fis);
             url = property.getProperty("url");
             username = property.getProperty("username");
