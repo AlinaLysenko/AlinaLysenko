@@ -14,14 +14,13 @@ import java.util.stream.Collectors;
 @Url("metals-colors.html") @Title("Metal and Colors")
 public class MetalsAndColorsPage extends AbstractPage {
 
-    @FindBy(xpath = "//ul[@class='panel-body-list results']//li")
+    @FindBy(css = ".results > li")
     private UIElement results;
 
     private MetalsAndColorsForm metalsAndColorsForm;
 
     public void fillAndSubmitMetalAndColorsForm(MetalsAndColorsData defaultData) {
-        metalsAndColorsForm.fillForm(defaultData);
-        metalsAndColorsForm.submitForm();
+        metalsAndColorsForm.fillAndSubmitForm(defaultData);
     }
 
     public List<String> getResults() {

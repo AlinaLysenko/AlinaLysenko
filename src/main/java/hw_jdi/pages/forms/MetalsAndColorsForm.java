@@ -41,17 +41,14 @@ public class MetalsAndColorsForm {
     @FindBy(css = "#submit-button")
     private Button submit;
 
-    public void fillForm(MetalsAndColorsData data) {
-        oddSummary.select(String.valueOf(data.getOddSummaryNumber()));
-        evenSummary.select(String.valueOf(data.getEvenSummaryNumber()));
+    public void fillAndSubmitForm(MetalsAndColorsData data) {
+        oddSummary.select(String.valueOf(data.getSummary().get(0)));
+        evenSummary.select(String.valueOf(data.getSummary().get(1)));
         data.getElements().forEach(el -> elements.select(el.name()));
         colors.select(data.getColor().name());
-        metals.select(data.getMetal().name());
+        metals.select(data.getMetals().name());
         uncheckedDefaultValue();
         data.getVegetables().forEach(v -> vegetables.select(v.name()));
-    }
-
-    public void submitForm() {
         submit.click();
     }
 
