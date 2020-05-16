@@ -5,6 +5,7 @@ import hwAPI.entity.data.InputTextData;
 import hwAPI.entity.request.YandexSpellerRequest;
 import hwAPI.entity.response.YandexSpellerResponse;
 import org.testng.annotations.Test;
+
 import java.util.List;
 
 public class YandexSpellerCheckTextTestClass extends AbstractTest {

@@ -6,6 +6,7 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public enum Options {
+
     DEFAULT(0),
     IGNORE_DIGITS(2),
     IGNORE_URLS(4),
@@ -13,5 +14,4 @@ public enum Options {
     IGNORE_CAPITALIZATION(512);
 
     private Integer value;
-
 }

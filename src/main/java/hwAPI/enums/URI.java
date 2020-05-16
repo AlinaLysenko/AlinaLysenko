@@ -2,7 +2,6 @@ package hwAPI.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-
 import static hwAPI.utils.PropertyReader.getProperties;
 
 @AllArgsConstructor
@@ -14,5 +13,4 @@ public enum URI {
     CHECK_TEXTS ("/checkTexts");
 
     private String value;
-
 }

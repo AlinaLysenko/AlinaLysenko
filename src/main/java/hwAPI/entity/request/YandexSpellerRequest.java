@@ -14,12 +14,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Builder(builderMethodName = "builder")
 public class YandexSpellerRequest {
+
     private List<String> texts;
     private String text;
     private Lang lang;
@@ -37,7 +37,7 @@ public class YandexSpellerRequest {
         this.options = options;
     }
 
-    public Map<String, Object> paramsToMap(){
+    public Map<String, Object> paramsToMap() {
         Map<String, Object> params = new HashMap<>();
         if (text != null) {
             params.put(Fields.PARAM_TEXT.getValue(), text);
@@ -51,5 +51,3 @@ public class YandexSpellerRequest {
         return params;
     }
 }
-
-

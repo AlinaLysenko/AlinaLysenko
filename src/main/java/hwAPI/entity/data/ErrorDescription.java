@@ -7,6 +7,7 @@ import lombok.Getter;
 @Getter
 @Builder(builderMethodName = "builder")
 public class ErrorDescription {
+
     private String expectedMistakes;
     private ErrorCode code;
     private String suggestedWord;

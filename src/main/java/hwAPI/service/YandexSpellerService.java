@@ -1,24 +1,28 @@
 package hwAPI.service;
 
 import com.google.gson.Gson;
-import hwAPI.entity.response.YandexSpellerResponse;
+import com.google.gson.reflect.TypeToken;
 import hwAPI.entity.request.YandexSpellerRequest;
+import hwAPI.entity.response.YandexSpellerResponse;
 import hwAPI.enums.URI;
-import java.util.Arrays;
+
+import java.lang.reflect.Type;
 import java.util.List;
 
 public class YandexSpellerService {
     public List<YandexSpellerResponse> getCheckText(YandexSpellerRequest request) {
-        return Arrays.asList(new Gson().fromJson(new RestAssuredService()
+        Type collectionType = new TypeToken<List<YandexSpellerResponse>>() {
+        }.getType();
+        return new Gson().fromJson(new RestAssuredService()
                 .getWithParams(URI.CHECK_TEXT.getValue(), request.paramsToMap())
-                .getBody().asString(), YandexSpellerResponse[].class));
+                .getBody().asString(), collectionType);
     }
 
-    public List<YandexSpellerResponse>  getCheckTexts(YandexSpellerRequest request) {
-        YandexSpellerResponse[][] array = new Gson().fromJson(new RestAssuredService()
+    public List<List<YandexSpellerResponse>> getCheckTexts(YandexSpellerRequest request) {
+        Type collectionType = new TypeToken<List<List<YandexSpellerResponse>>>() {
+        }.getType();
+        return new Gson().fromJson(new RestAssuredService()
                 .getWithParams(URI.CHECK_TEXTS.getValue(), request.paramsToMap())
-                .getBody().asString(), YandexSpellerResponse[][].class);
-        return Arrays.asList(array[0]);
+                .getBody().asString(), collectionType);
     }
-
 }
