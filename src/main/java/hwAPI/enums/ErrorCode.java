@@ -13,4 +13,13 @@ public enum ErrorCode {
     ERROR_TOO_MANY_ERRORS(4);
 
     private Integer value;
+
+    public static ErrorCode valueOfCode(Integer errorCode) {
+        for (ErrorCode code : values()) {
+            if (code.value.equals(errorCode)) {
+                return code;
+            }
+        }
+        return null;
+    }
 }
