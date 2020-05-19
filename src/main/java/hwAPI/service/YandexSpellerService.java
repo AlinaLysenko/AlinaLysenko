@@ -10,19 +10,20 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 public class YandexSpellerService {
+
     public List<YandexSpellerResponse> getCheckText(YandexSpellerRequest request) {
-        Type collectionType = new TypeToken<List<YandexSpellerResponse>>() {
-        }.getType();
-        return new Gson().fromJson(new RestAssuredService()
-                .getWithParams(URI.CHECK_TEXT.getValue(), request.paramsToMap())
-                .getBody().asString(), collectionType);
+        Type collectionType = new TypeToken<List<YandexSpellerResponse>>() {}.getType();
+        return new Gson().fromJson(
+                new RestAssuredService().getWithParams(URI.CHECK_TEXT.getValue(), request.paramsToMap()),
+                collectionType
+        );
     }
 
     public List<List<YandexSpellerResponse>> getCheckTexts(YandexSpellerRequest request) {
-        Type collectionType = new TypeToken<List<List<YandexSpellerResponse>>>() {
-        }.getType();
-        return new Gson().fromJson(new RestAssuredService()
-                .getWithParams(URI.CHECK_TEXTS.getValue(), request.paramsToMap())
-                .getBody().asString(), collectionType);
+        Type collectionType = new TypeToken<List<List<YandexSpellerResponse>>>() {}.getType();
+        return new Gson().fromJson(
+                new RestAssuredService().getWithParams(URI.CHECK_TEXTS.getValue(), request.paramsToMap()),
+                collectionType
+        );
     }
 }

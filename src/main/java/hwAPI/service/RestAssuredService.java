@@ -1,5 +1,7 @@
 package hwAPI.service;
 
+import com.google.gson.reflect.TypeToken;
+import hwAPI.entity.response.YandexSpellerResponse;
 import hwAPI.enums.URI;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
@@ -8,6 +10,7 @@ import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -27,7 +30,7 @@ public class RestAssuredService {
                 .build();
     }
 
-    public Response getWithParams(String uri, Map<String, Object> params) {
+    public String getWithParams(String uri, Map<String, Object> params) {
         RequestSpecification specification = given(REQUEST_SPECIFICATION);
         for (Map.Entry<String, Object> param : params.entrySet()) {
             if (param.getValue().getClass().equals(java.util.ArrayList.class)) {
@@ -37,7 +40,8 @@ public class RestAssuredService {
                 specification.param(param.getKey(), param.getValue());
             }
         }
-        return specification.get(uri);
+        return specification.get(uri)
+                .getBody().asString();
     }
 }
 
